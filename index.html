@@ -117,38 +117,41 @@ button:hover { background: #ffe3ef; }
   max-width: 450px;
 }
 /* ===== PHONE BIG BOX FIX ===== */
+/* ===== BIG MOBILE BOX (FINAL FIX) ===== */
 @media (max-width: 600px) {
 
   .screen {
-    justify-content: center;
-    align-items: center;
+    padding: 0;
   }
 
   .card {
-    width: 95vw !important;
-    height: 75vh !important;
-    max-width: none !important;
-
-    padding: 25px;
+    width: 100vw !important;
+    height: 80vh !important;   /* BIG height */
+    margin: 0 !important;
+    border-radius: 0 !important;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 20px;
   }
 
   .card img {
     width: 90%;
-    max-width: none;
-    height: auto;
+    max-height: 40vh;
+    object-fit: contain;
   }
 
   .card h2 {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
 
   button {
-    font-size: 18px;
-    padding: 14px 28px;
+    width: 70%;
+    font-size: 20px;
+    padding: 16px;
   }
 
 }
@@ -242,5 +245,6 @@ setInterval(createFloating, 300);
 </script>
 </body>
 </html>
+
 
 
