@@ -13,22 +13,11 @@ body {
   color: #ff1493;
 }
 
-/* Common card style for boxes */
-.card {
-  background: #fff;
-  color: #ff1493;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 0 15px #ff69b4;
-  margin: 15px;
-  max-width: 400px;
-}
-
 /* Screens */
 .screen {
   display: none;
+  min-height: 100vh; /* full height */
   width: 100%;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -41,9 +30,21 @@ body {
 
 .active { display: flex; }
 
+/* Card style */
+.card {
+  background: #fff;
+  color: #ff1493;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #ff69b4;
+  margin: 15px;
+  max-width: 400px;
+}
+
 /* Images */
 img {
   max-width: 250px;
+  max-height: 250px;
   border-radius: 20px;
   margin-bottom: 20px;
   box-shadow: 0 0 15px #ff69b4;
@@ -67,15 +68,13 @@ button {
 button:hover { background: #ffe3ef; }
 
 /* No button running away */
-/* No button runs away but stays visible */
 #noBtn {
-  position: absolute;       /* absolute to move freely */
-  top: 50%;                 /* initial position */
+  position: absolute;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.3s;         /* smooth movement */
+  transition: 0.3s;
 }
-
 
 /* Floating hearts & flowers */
 .floating {
@@ -97,7 +96,7 @@ button:hover { background: #ffe3ef; }
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 0 20px #ff69b4;
-  max-width: 800px;
+  max-width: 850px;
   padding: 20px;
   gap: 20px;
   align-items: flex-start;
@@ -106,6 +105,7 @@ button:hover { background: #ffe3ef; }
 
 #wifeCard img {
   max-width: 350px;
+  max-height: 400px;
   border-radius: 20px;
 }
 
@@ -119,14 +119,16 @@ button:hover { background: #ffe3ef; }
 
 /* --- Media Queries for Mobile --- */
 @media (max-width: 600px) {
+  .screen { min-height: auto; padding: 15px; }
   #wifeCard {
     flex-direction: column;
     align-items: center;
     padding: 15px;
-    max-width: 90%;
+    max-width: 95%;
   }
   #wifeCard img {
     max-width: 90%;
+    max-height: 300px;
     margin-bottom: 15px;
   }
   #letterBox {
@@ -138,9 +140,9 @@ button:hover { background: #ffe3ef; }
     font-size: 16px;
     padding: 10px 20px;
   }
-  .card {
+  .card img {
     max-width: 90%;
-    padding: 15px;
+    max-height: 200px;
   }
 }
 </style>
@@ -178,7 +180,7 @@ button:hover { background: #ffe3ef; }
 <!-- Page 4: Will you be my Valentine -->
 <div class="screen" id="page3">
   <div class="card">
-    <img src="flower.webp" alt="Cute Cat">
+    <img src="flower.webp" alt="Flower">
     <h2>Will you be my Valentine?</h2>
     <button onclick="nextPage(4)">Yes</button>
     <button id="noBtn">No</button>
@@ -192,7 +194,7 @@ button:hover { background: #ffe3ef; }
     <div id="letterBox">
       <h2>My Dearest Love ❤️</h2>
       <p>From the first moment I met you, I knew my life had changed forever. Every day with you is a new adventure filled with love, laughter, and warmth. Your smile brightens my darkest days, your touch calms my restless heart, and your love completes me in ways words cannot fully describe.</p>
-      <p>We have shared countless memories, dreams, and moments that I will cherish forever. You are my partner, my confidant, my wife, and the love of my life. With you, I have found a happiness I never knew existed, and a love so deep it fills my soul.</p>
+      <p>We have shared countless memories, dreams, and moments that I will cherish forever. You are my partner, my confidant, my best friend, and the love of my life. With you, I have found a happiness I never knew existed, and a love so deep it fills my soul.</p>
       <p>On this special day, I want to remind you that you are my today, my tomorrow, and my forever. Thank you for being you, for loving me, and for making every day extraordinary. Will you be my Valentine?</p>
       <p>Forever yours, <br>💖 My Love</p>
     </div>
@@ -206,16 +208,14 @@ function nextPage(id){
   document.getElementById('page'+id).classList.add('active');
 }
 
-// ---- Make No button run away on hover ----
+// ---- No button runs away ----
 const noBtn = document.getElementById('noBtn');
 noBtn.addEventListener('mouseenter', function(){
-  // random positions within viewport
-  const x = Math.random() * 80; // 0% to 80% left
-  const y = Math.random() * 80; // 0% to 80% top
+  const x = Math.random() * 80; // random left
+  const y = Math.random() * 80; // random top
   noBtn.style.left = x + 'vw';
   noBtn.style.top = y + 'vh';
 });
-
 
 // ---- Floating hearts & flowers ----
 function createFloating(){
@@ -232,4 +232,3 @@ setInterval(createFloating, 300);
 </script>
 </body>
 </html>
-
