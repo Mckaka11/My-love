@@ -13,33 +13,42 @@ body {
   color: #ff1493;
 }
 
-/* Screens */
 .screen {
   display: none;
-  min-height: 100vh; /* full height */
   width: 100%;
+  min-height: 100dvh; /* dynamic mobile height */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  overflow-y: auto; /* allow scrolling */
+
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px;
+
+  padding: 20px;
   box-sizing: border-box;
 }
 
-.active { display: flex; }
+.active {
+  display: flex;
+}
 
-/* Card style */
+
 .card {
   background: #fff;
   color: #ff1493;
-  padding: 20px;
+  padding: 25px;
   border-radius: 20px;
   box-shadow: 0 0 15px #ff69b4;
-  margin: 15px;
-  max-width: 400px;
+
+  width: 95%;
+  max-width: 500px;
+
+  min-height: 65vh; /* BIG box */
 }
+
 
 /* Images */
 img {
@@ -116,45 +125,28 @@ button:hover { background: #ffe3ef; }
   line-height: 1.5;
   max-width: 450px;
 }
-/* ===== PHONE BIG BOX FIX ===== */
-/* ===== BIG MOBILE BOX (FINAL FIX) ===== */
-@media (max-width: 600px) {
-
-  .screen {
-    padding: 0;
-  }
+  @media (max-width: 600px) {
 
   .card {
-    width: 100vw !important;
-    height: 80vh !important;   /* BIG height */
-    margin: 0 !important;
-    border-radius: 0 !important;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
-    padding: 20px;
+    min-height: 75dvh; /* VERY big on phone */
+    width: 100%;
+    max-width: none;
   }
 
   .card img {
-    width: 90%;
-    max-height: 40vh;
-    object-fit: contain;
-  }
-
-  .card h2 {
-    font-size: 1.8rem;
+    width: 95%;
+    max-height: 45vh;
   }
 
   button {
-    width: 70%;
+    width: 80%;
     font-size: 20px;
-    padding: 16px;
   }
 
 }
+
+
+   
 
 
 
@@ -245,6 +237,7 @@ setInterval(createFloating, 300);
 </script>
 </body>
 </html>
+
 
 
 
