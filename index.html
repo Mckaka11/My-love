@@ -117,34 +117,39 @@ button:hover { background: #ffe3ef; }
   max-width: 450px;
 }
 
-/* --- Media Queries for Mobile --- */
 @media (max-width: 600px) {
-  .screen { min-height: auto; padding: 15px; }
-  #wifeCard {
+
+  /* Bigger box for pages 1–4 */
+  .card {
+    width: 95%;
+    max-width: none;
+    min-height: 70vh; /* taller box */
+    padding: 30px 20px;
+
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    max-width: 95%;
+    justify-content: space-evenly;
   }
-  #wifeCard img {
-    max-width: 90%;
-    max-height: 300px;
-    margin-bottom: 15px;
-  }
-  #letterBox {
-    max-width: 100%;
-    font-size: 1rem;
-    text-align: center;
-  }
-  button {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
+
+  /* Bigger images inside box */
   .card img {
-    max-width: 90%;
-    max-height: 200px;
+    max-width: 85%;
+    max-height: 300px;
   }
+
+  /* Bigger text */
+  .card h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Bigger buttons */
+  button {
+    font-size: 18px;
+    padding: 14px 28px;
+  }
+
 }
+
 </style>
 </head>
 <body>
@@ -232,3 +237,4 @@ setInterval(createFloating, 300);
 </script>
 </body>
 </html>
+
